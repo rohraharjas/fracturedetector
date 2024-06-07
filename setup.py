@@ -1,24 +1,25 @@
 from setuptools import find_packages, setup
 from typing import List
 
-HYPHEN_E_DOT = "-e ."
-def get_requirements(f_path: str)->List[str]:
-    '''
-    Returns list of requirements
-    '''
-    requirements = []
-    with open(f_path) as f_obj:
-        requirements = f_obj.readlines()
-        requirements = [req.replace('\n', '') for req in requirements]
-        if HYPHEN_E_DOT in requirements:
-            requirements.remove(HYPHEN_E_DOT)
-    return requirements
+SHORT_DESCRIPTION = "FractureDetector Package is a CNN model that checks if a X-Ray image shows a fracture."
+
+with open("README.md", "r") as fh: 
+    LONG_DESCRIPTION = fh.read()
 
 setup(
- name = 'imageclassification',
-version='0.0.1',
-author='Harjas',
-author_email='hrohra2004@gmaill.com',
+ name = 'FractureDetector',
+version='0.0.10',
+author='Harjas Rohra',
+author_email='<hrohra2004@gmaill.com>',
+description = SHORT_DESCRIPTION,
+long_description = LONG_DESCRIPTION,
+long_description_content_type = "text/markdown",
+license="MIT",
+license_files= ("LICENSE.txt",),
 packages=find_packages(),
-install_requires = get_requirements('requirements.txt'),
+install_requires = ['pillow', 'joblib', 'numpy'],
+classifiers=[ 
+        "Programming Language :: Python :: 3", 
+        "Operating System :: OS Independent", 
+    ], 
 )
