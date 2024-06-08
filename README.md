@@ -20,17 +20,17 @@ Spiral Fracture.
 
 You can install FractureDetector from PyPi using pip or pip3 as
 
-`pip install fracture_detector`
+`pip install FractureDetector`
 
 or
 
-`pip3 install fracture_detector`
+`pip3 install FractureDetector`
 
 ## Modules
 
 The FractureDetector package contains 1 module(utils) that contains a class that contains the FractureDetector class.
 
-`from fracture_detector import fracture_detector.utils.FractureDetector`
+`from FractureDetector import FractureDetector.utils.FractureDetector`
 
 The Fracture detector class takes image object and checks it for any fractures.
 
