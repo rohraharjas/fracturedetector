@@ -65,3 +65,5 @@ Response:
     "fracture_type": "Hairline Fracture"
 }
 ```
+
+> **Disclaimer:** This project is for research/demonstration only. **Not for clinical use.** Do not use predictions from this model as medical advice — always consult a licensed healthcare professional.
