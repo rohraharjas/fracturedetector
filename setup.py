@@ -17,7 +17,7 @@ long_description_content_type = "text/markdown",
 license="MIT",
 license_files= ("LICENSE.txt",),
 packages=find_packages(),
-install_requires = ['pillow', 'joblib', 'numpy'],
+install_requires = ['pillow', 'joblib', 'numpy', 'tensorflow', 'fastapi', 'uvicorn', 'pydantic'],
 classifiers=[ 
         "Programming Language :: Python :: 3", 
         "Operating System :: OS Independent", 

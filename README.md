@@ -1,49 +1,67 @@
-## FractureDetector Package
+## FractureDetector
 
-FractureDetector Package is a CNN model that checks if a X-Ray image shows a fracture.
+FractureDetector is a CNN model that checks if a X-Ray image shows a fracture.
 
 Additionally it also classifies a detected fracture(if any) into the following categories:
 
-Avulsion fracture,
-Comminuted fracture,
-Fracture Dislocation,
-Greenstick fracture,
-Hairline Fracture,
-Healthy Bone,
-Impacted fracture,
-Longitudinal fracture,
-Oblique fracture,
-Pathological fracture,
-Spiral Fracture.
+- Avulsion fracture,
+- Comminuted fracture,
+- Fracture Dislocation,
+- Greenstick fracture,
+- Hairline Fracture,
+- Healthy Bone,
+- Impacted fracture,
+- Longitudinal fracture,
+- Oblique fracture,
+- Pathological fracture,
+- Spiral Fracture.
 
 ## Installation
 
-You can install FractureDetector from PyPi using pip or pip3 as
+1) To get started clone this github repo
 
-`pip install FractureDetector`
+`git clone https://github.com/rohraharjas/fracturedetector.git`
 
-or
 
-`pip3 install FractureDetector`
+2) Install dependencies: Create a virtual environment and run the setup.py script by
 
-## Modules
+`pip install -e .`
 
-The FractureDetector package contains 1 module(utils) that contains a class that contains the FractureDetector class.
+3) Train the model: Run the notebook at `fracturedetector/fracture_detector/Model.ipynb`
 
-`from FractureDetector import FractureDetector.utils.FractureDetector`
+4) Start the API service at app.py by running
 
-The Fracture detector class takes image object and checks it for any fractures.
+`uvicorn app:app --reload`
 
-`f_detector = FractureDetector(img)#img is the X-Ray image`
+## API Usage
 
-It returns a FractureDetector object.
+The service exposes the following endpoints. All endpoints accept a single file upload (multipart/form-data) named file.
 
-## Attributes and Functions
+`POST /predict`
 
-1) FractureDetector.category: A string of the category of the X-Ray(Avulsion fracture, Comminuted fracture, Fracture Dislocation, Greenstick fracture, Hairline Fracture, Healthy Bone, Impacted fracture, Longitudinal fracture, Oblique fracture, Pathological fracture, Spiral Fracture.)
+Description: Returns the predicted category for the uploaded X-ray.
+Response example:
+```json
+{
+  "prediction": "Oblique fracture"
+}
+```
 
-2) FractureDetector.hasFracture(): Returns a boolean value. True if X-Ray shows a fracture, False otherwise.
+`POST /has-fracture`
+Description: Checks whether the X-ray contains a fracture.
+Response:
 
-3) FractureDetector.fractureType(): Returns a string representing the type of Fracture.
+```json
+{
+    "has_fracture": true
+}
+```
 
-If no fracture detected returns "".
+`POST /fracture-type`
+Description: Returns the type of fracture if detected, otherwise an empty string.
+Response:
+```json
+{
+    "fracture_type": "Hairline Fracture"
+}
+```
