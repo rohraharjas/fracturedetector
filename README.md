@@ -67,3 +67,7 @@ Response:
 ```
 
 > **Disclaimer:** This project is for research/demonstration only. **Not for clinical use.** Do not use predictions from this model as medical advice — always consult a licensed healthcare professional.
+
+## Built With
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
